@@ -6,8 +6,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # Replace with your bot token
-bot_token = '7448362382:AAFoUithRTORJ-mjjbBpAeOC_sdNr0sHCmE'
-bot_owner_id = 5397621246
+bot_token = '7448362382:AAFoUithRTORJ-mjjbBpAeOC_sdNr0sHCmE'  # Inserted bot token here
+bot_owner_id = 5397621246  # Replace with your Telegram user ID
 premium_accounts = []
 used_accounts = []
 user_data = {}
@@ -152,7 +152,6 @@ async def shop(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not await enforce_membership(update, context):
         return
 
-    user
     user_id = update.effective_user.id
     if user_id not in user_data:
         user_data[user_id] = {'coins': 0, 'invites': 0, 'claimed_accounts': [], 'last_login': datetime.now(), 'claims_today': 0}
