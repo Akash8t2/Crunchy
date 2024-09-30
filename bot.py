@@ -259,15 +259,11 @@ async def main():
     # Restore user data on startup
     restore_data()
 
-    # Start the bot (begin polling for updates)
+    # Start the bot and begin polling for updates
     await application.start()
 
-    # Block until the bot is stopped
-    await application.idle()
+    # This will handle polling and keep the bot running
+    await application.run_polling()
 
     # Backup user data on shutdown
     backup_data()
-
-if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
