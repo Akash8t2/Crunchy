@@ -234,6 +234,9 @@ async def main():
     # Create the Application object with your bot token
     application = Application.builder().token('7448362382:AAFoUithRTORJ-mjjbBpAeOC_sdNr0sHCmE').build()
 
+    # Initialize the application explicitly
+    await application.initialize()
+
     # Command handlers
     application.add_handler(CommandHandler('load', load))
     application.add_handler(CommandHandler('mload', mload))
@@ -256,9 +259,8 @@ async def main():
     # Restore user data on startup
     restore_data()
 
-    # Start the bot
+    # Start the bot (begin polling for updates)
     await application.start()
-    await application.updater.start_polling()
 
     # Block until the bot is stopped
     await application.idle()
